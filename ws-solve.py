@@ -102,8 +102,8 @@ class Game:
 
     def attempt_to_solve(self): 
         """
-            Uses a recursive backtracking algorithm to determine if a 
-            game is solved or not. 
+            Uses a recursive backtracking algorithm to attempt to
+            solve the game. 
         """
         if self.is_solved(): 
             return self._copy()
@@ -136,7 +136,7 @@ def get_number_of_tubes():
         try: 
             return int(number_of_tubes)
         except: 
-            print("You must enter an integer.")
+            print("You must type an integer.")
             number_of_tubes = input("How many tubes are there: ")
 
 
@@ -176,7 +176,8 @@ def color_counts_valid(tubes):
 
 def fill_tubes(game, n): 
     """
-        Prompts the user to fill n tubes, then adds those to the game.
+        Prompts the user to fill any number of tubes, 
+        then adds the tubes to the game.
     """
     # show the user the rules 
     print()
@@ -200,7 +201,7 @@ def fill_tubes(game, n):
         # check number of colors (there cannot be more than 4 of each color)
         valid, offending_color = color_counts_valid(game.tubes + [colors])
         if not valid: 
-            print(f"The following colors has appeared more than 4 times: \
+            print(f"The following color has appeared more than 4 times: \
                 {offending_color.value}")
             print()
             continue
@@ -213,7 +214,7 @@ def fill_tubes(game, n):
 def get_filename(): 
     filename = input("Choose a name for the file: ")
     while not filename: 
-        print("You can't name the file nothing.")
+        print("The file name cannot be an empty string.")
         filename = input("Choose a name for the file: ")
     return filename
 
